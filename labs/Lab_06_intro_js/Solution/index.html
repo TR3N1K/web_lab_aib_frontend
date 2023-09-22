@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>JS</title>
+</head>
+<body>
+<script>
+    /*Задание №1*/
+    let apple=10;
+    alert(apple);
+    console.log(apple);
+    let condition = "World of Tanks";
+    console.log('Good game is ' + condition);
+
+    /*Задание №2*/
+    let num = 6;
+    let str = "100";
+    let x = new Boolean(true);
+    console.log(num + str);
+    console.log(num + x);
+    console.log(x + str);
+    console.log(num + str + x);
+    console.log(num + str + x);
+    console.log(str+ num);
+
+    /*Задание №3*/
+    let arr = [];
+    function getRandomArray(min, max)
+    {
+    return Math.floor(min + Math.random() * (max + 1 - min));
+    }
+    for (i = 0; i < 10; i++) {
+        arr[i] = getRandomArray(0, 10);
+        console.log("Массив: ",arr[i]);
+    }
+    const result = arr.filter((number) => number >0)
+    console.log("Отсортированный массив: ",result);
+
+    /*Задание №4*/
+    function getRandomNumber() {
+    // Генерация случайного числа от 0 до 100
+    return Math.floor(Math.random() * 101);
+    }
+    let x1 = getRandomNumber();
+    console.log(x1);
+    function multiplyArrayByNumber(array, number) {
+    // Создание нового массива для хранения результата
+    let resultArray = [];
+    for (let i = 0; i < array.length; i++) {
+    // Умножение элемента на заданное число и добавление в новый массив
+    resultArray.push(array[i] * x1);
+    }
+    return resultArray;
+    }
+    // Проверка работы функции и вывод в консоль
+    let myArray = [1, 2, 3, 4, 5];
+    let multipliedArray = multiplyArrayByNumber(myArray, 2);
+    console.log(multipliedArray);
+
+    // Создание анонимной функции
+    const generateRandomWord = () => {
+    const words = ["C#", "C++", "Java", "JavaScript", "PHP", "Pascal (lol)", "x64"];
+    const randomIndex = Math.floor(Math.random() * words.length);
+    const randomWord = words[randomIndex];
+    return randomWord;
+    };
+
+    /*Задание №5*/
+    // Создание пустого объекта
+    const person = {};
+    // Добавление полей в объект
+    person.firstName = "Николай";
+    person.surname = "Трегубов";
+    person.patronymic = "Владимирович";
+    person.birthday = "09-10-2003";
+    person.hobby = "Программирование";
+    person.group = "IT";
+    // Добавление метода в объект
+    person.getInfo = function() {
+    const currentDate = new Date();
+    const birthDate = new Date(this.birthday);
+    const age = currentDate.getFullYear() - birthDate.getFullYear();
+    return `ФИО: ${this.surname} ${this.firstName} ${this.patronymic}\nГод рождения: ${birthDate.getFullYear()}\nХобби: ${this.hobby}\nВозраст: ${age}`;
+    };
+    // Вызов метода и вывод результата через alert
+    alert(person.getInfo());
+    // Создание объекта с зарплатами сотрудников
+    const salaries = {
+    "Сергей": 5000,
+    "Олег": 6000,
+    "Иван": 4500,
+    "Петр": 5500,
+    "Владимир": 4000,
+    "Семён": 7000,
+    "Ольга": 3500,
+    "Дарья": 4500,
+    "Виталя": 5500,
+    "Валера": 6000
+    };
+    // Подсчет общей зарплаты сотрудников
+    let totalSalary = 0;
+    for (let key in salaries) {
+    totalSalary += salaries[key];
+    }
+    console.log("Общая зарплата сотрудников: ", totalSalary);
+</script>
+</body>
+</html>
