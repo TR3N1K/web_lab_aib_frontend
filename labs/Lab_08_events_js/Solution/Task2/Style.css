@@ -1,0 +1,11 @@
+.Buttons {
+
+    border-radius: 30px;
+    color: rgb(17, 13, 13);
+    margin-top: 24px;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+}
