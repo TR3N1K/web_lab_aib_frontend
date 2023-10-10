@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyLab8</title>
     <link rel="stylesheet" href="Style.css">
-    
 </head>
 
 <body>
-    <div><input type="button" onclick="changeBackground('red')" value="Сделать фон сайти красным☺" class="Buttons"></div>
-    <div><input type="button" onclick="changeBackground('blue')" value="Сделать фон сайти синим☻" class="Buttons"></div>
-    <div><input type="button" onclick="changeBackground('green')" value="Сделать фон сайти зелёным♥" class="Buttons"></div>
+    <LABEL class="TextLabel" for="red">Red:</LABEL>
+    <div><INPUT type="number" id="red" min="0" max="255" onchange="generateColor()"><BR></div>
+    <LABEL class="TextLabel" for="green">Green:</LABEL>
+    <div><INPUT type="number" id="green" min="0" max="255" onchange="generateColor()"><BR></div>
+    <LABEL class="TextLabel" for="blue">Blue:</LABEL>
+    <div><INPUT type="number" id="blue" min="0" max="255" onchange="generateColor()"><BR><BR></div>
+    <DIV class="ColorsSelector" id="colorArea"></DIV>
 </body>
 
 <script src="app.js"> </script>
