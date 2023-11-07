@@ -1,10 +1,10 @@
-var a = prompt('var one'); 
-var _ = prompt('var two');
-if (a === _) {
+let a = prompt('var one'); 
+let b = prompt('var two');
+if (a === b) {
     console.log('equally')
 }
 else {
     console.log('not equally');
 }
-var b = 'world'; 
-var a =+ b;
+let word = 'world'; 
+a =+ b;s

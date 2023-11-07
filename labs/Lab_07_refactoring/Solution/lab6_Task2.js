@@ -1,8 +1,8 @@
-var f = new Array('apple', 'strawberry', 'blueberry', 'raspberry', 'lemon');
-for(i=0; i<5; i++){
+let f = new Array('apple', 'strawberry', 'blueberry', 'raspberry', 'lemon');
+for (i = 0; i < 5; i++) {
     console.log(f[i]);
 }
-for(i=0; i<5; i++){
+for (i = 0; i < 5; i++) {
     if (f[i] === 'apple') {
         console.log('apple green');
     }

@@ -1,10 +1,10 @@
-var d = prompt('Введите кол-во человек ', undefined);
+let d = prompt('Введите кол-во человек ', undefined);
 if (!isNaN(parseFloat(d))) {
     d = parseFloat(d);
 } else {
     d = 0;
 }
-while (d === 0){
+while (d === 0) {
     d = prompt('Введите кол-во человек ', undefined);
     if (!isNaN(parseFloat(d))) {
         parseFloat(d);
@@ -12,7 +12,7 @@ while (d === 0){
         d = 0;
     }
 }
-var k = prompt('Введите зарплату на человека ', undefined);
+let k = prompt('Введите зарплату на человека ', undefined);
 if (!isNaN(parseFloat(k))) {
     parseFloat(k);
 } else {
