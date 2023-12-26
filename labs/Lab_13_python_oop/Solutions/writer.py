@@ -1,27 +1,27 @@
 import xlsxwriter
-from blocks import TopPayersBlock, TopCitiesBlock, AccountStatusBlock
+from blocks import ParametrsBlock, PayersBlock, GeographyBlock, StatusBlock
 
-class XlsAnalyticPaymentWriter:
-    ANALYTICS_BLOCKS_CLASSES = [
-        TopPayersBlock,
-        TopCitiesBlock,
-        AccountStatusBlock
+class Writer:
+    CLASSES = [
+        ParametrsBlock,
+        PayersBlock,
+        GeographyBlock,
+        StatusBlock
     ]
 
     def __init__(self, data):
         self.data = data
 
-    def write_excel_report(self, output_file):
+    def write_excel(self, output_file):
         workbook = xlsxwriter.Workbook(output_file)
         worksheet = workbook.add_worksheet()
 
         row = 0
         col = 0
 
-        for block_class in self.ANALYTICS_BLOCKS_CLASSES:
-            block_instance = block_class(worksheet, row, col, self.data)
-            block_instance.write_header()
-            block_instance.write_data()
-            row += 12
+        for blocks in self.CLASSES:
+            block_instance = blocks(worksheet, row, col, self.data)
+            block_instance.wr_header()
+            block_instance.wr_data()
 
         workbook.close()
