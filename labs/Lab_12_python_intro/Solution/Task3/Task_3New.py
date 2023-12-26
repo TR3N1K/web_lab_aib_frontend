@@ -1,28 +1,30 @@
-def print_histogram(text):
-    # Создаем словарь для подсчета символов
-    char_count = {}
-    for char in text:
-        if char != ' ' and char != '\n':
-            char_count[char] = char_count.get(char, 0) + 1
+def main(line):
+    maxValue = 0
+    myList = {}
+    for item in line:
+        if item == ' ':
+            continue
+        if item in myList:
+            myList[item] += 1
+            maxValue = max(maxValue, myList[item])
+        else:
+            myList[item] = 1
 
-    # Сортируем символы по возрастанию кодов
-    sorted_chars = sorted(char_count.keys())
+    charValue = list(myList.keys())
+    charValue.sort()
+    i = maxValue
+    while i > 0:
+        str = ""
+        for item in charValue:
+            if myList[item] >= i:
+                str += '#'
+            else:
+                str += ' '
+        print(str)
+        i -= 1
+    for c in charValue:
+        print(c, end='')
 
-    # Определяем максимальное количество символов в столбце
-    max_count = max(char_count.values())
-
-    # Выводим гистограмму
-    for char in sorted_chars:
-        count = char_count[char]
-        histogram_line = '#' * count
-
-        # Добавляем пробелы для выравнивания столбцов
-        histogram_line += ' ' * (max_count - count)
-
-        # Выводим символ и гистограмму
-        print(histogram_line + ' ' + char)
-
-# Пример использования
-encrypted_text = input("Введите зашифрованный текст: ")
-
-print_histogram(encrypted_text)
+if __name__=='__main__':
+    line = input()
+    main(line)
