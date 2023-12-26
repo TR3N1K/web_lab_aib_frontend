@@ -1,30 +1,20 @@
-import datetime
+from writer import XlsAnalyticPaymentWriter
 import json
-import os
-
-from writer import Writer
-
-def load_data(file_name):
-    path = os.path.join(
-        './../', file_name
-    )
-
-    with open(path, 'r', encoding='utf-8') as file:
-        data = json.load(file)
-
-    return data
+from datetime import datetime
+def read_file(file_name):
+    with open(file_name, "r", encoding="utf-8") as file:
+        some_data = json.load(file)
+        return some_data
 
 def main():
-    data_clients = load_data('clients.json')
-    data_payments = load_data('payments.json')
-
-    data = {'clients':data_clients['clients'], 'payments':data_payments['payments']}
-
-    date = datetime.date.today().strftime('%Y_%m_%d')
-    output_file = f'my_payments_analytics_{date}.xlsx'
-
-    writer = Writer(data)
-    writer.write_excel(output_file)
+    file_clients = '../clients.json'
+    file_payments = '../payments.json'
+    write_file =f"my_payments_analytics_{datetime.now().strftime('%Y-%m-%d')}.xlsx"
+    data_clients = read_file(file_clients)
+    data_payments = read_file(file_payments)
+    some_data = {'clients': data_clients['clients'], 'payments': data_payments['payments']}
+    analytic_writer = XlsAnalyticPaymentWriter(some_data)
+    analytic_writer.writer(write_file)
 
 if __name__ == '__main__':
     main()
